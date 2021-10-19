@@ -19,7 +19,7 @@ Menu::Menu()
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),c);
 }
 
-int Menu::show(Time team_a, Time team_b, Boxscore total){
+int Menu::show(){
         /*//menu*/
         int opcao;
         do{
