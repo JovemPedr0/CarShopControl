@@ -5,7 +5,7 @@
 #include <windows.h>
 
 int a, b, L, L2;
-Menu2 menu_jogo = Menu2();
+
 
 Menu::Menu()
 {
@@ -69,16 +69,11 @@ int Menu::show(){
                 case 1:
                     system("cls");
                     printf("\n    Cadastrar Time\n");
-
-                    team_a.Cadastrar_time();
-                    team_b.Cadastrar_time();
-
                     break;
 
                 case 2:
                     system("cls");
                     printf("\n Comecou Partida\n");
-                    menu_jogo.show(team_a, team_b, total);
                     break;
 
                 case 3:
