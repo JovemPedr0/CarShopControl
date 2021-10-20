@@ -28,15 +28,13 @@ void Moto::lerAtributos(){
     double precoRecebido;
 
     setNomeDoVeiculo("Moto");
+    fflush(stdin);
 
     std::cout << "Digite o codigo da moto: " << std::endl;
-    do{
-        std::cin >> codigoVeiculoRecebido;
-        if(codigoVeiculoRecebido < 0){
-            std::cout << "Código Inválido, insira novamente!" << std::endl;
-        }
-    }while(codigoVeiculoRecebido > 0);
+    std::cin >> codigoVeiculoRecebido;
+    
     setCodigoDoVeiculo(codigoVeiculoRecebido);
+
     std::cin.ignore();
 
     std::cout << "Insira a marca da moto: " << std::endl;

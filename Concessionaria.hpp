@@ -16,7 +16,7 @@ class Concessionaria{
         Concessionaria(std::string nomeDaConcessionaria, Endereco localizacao);
         ~Concessionaria();
 
-        std::string getNome();
+        std::string getNomeConcessionaria();
 
         void setNome(std::string nomeDaConcessionaria);
         void setVeiculo(Veiculo* vcl);

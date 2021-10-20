@@ -37,12 +37,14 @@ void AdicionarEstoque(){
     int codigo, quantidade, escolha;
 
     while(1){
+        
         cout << "Digite o código do veículo a adicionar no estoque: " << endl;
         cin >> codigo;
 
         for(unsigned int i = 0; i < veiculos.size(); i++){
 
             if(codigo == veiculos[i]->getCodigoDoVeiculo()){
+               
                 cout << "Digite a quantidade a ser adicionada:" << endl;
                 cin >> quantidade;
 
@@ -74,6 +76,7 @@ void DiminuirEstoque(){
     int codigo, escolha;
 
     while(1){
+        
         cout << "Digite o código do veículo a retirar no estoque: " << endl;
         cin >> codigo;
 
@@ -118,16 +121,22 @@ int main(){
 
         switch(opcao){
             case 1:
+                system("cls");
                 CadastroVeiculo();
-
+                
                 break;
 
             case 2:
-                cout << "Digite qual estoque deseja ver: ('0 - para a loja Matriz e 1 - para a Filial')" << endl;
-                do{
+                system("cls");
+                cout << "Digite qual estoque deseja ver: ('1 - para a loja Matriz e 2 - para a Filial')" << endl;
+
+                while(estoqueEscolhido != 1 && estoqueEscolhido != 2){
                     cin >> estoqueEscolhido;
-                    cout << "Estoque não existe ou não consta no sistema!" << endl;
-                }while(estoqueEscolhido != 0 && estoqueEscolhido != 1);
+
+                    if(estoqueEscolhido != 0 && estoqueEscolhido != 1){
+                        cout << "Estoque não existe ou não consta no sistema!" << endl;
+                    }      
+                }
 
                 if(estoqueEscolhido == 0){
                     lojas[0].exibirEstoque();
@@ -138,15 +147,21 @@ int main(){
                 break;
 
             case 3:
+                system("cls");
                 AdicionarEstoque();
                 break;
 
             case 4:
+                system("cls");
                 DiminuirEstoque();
                 break;
 
             case 5:
-                cout << "Obrigado por usar nosso sistema!" << endl;
+                system("cls");
+                cout << "Obrigado por usar nosso sistema!";
+                    for(int i = 0; i < 3; i++){
+                        cout << ".";
+                    }
                 break;
         }
 
