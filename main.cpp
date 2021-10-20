@@ -18,7 +18,7 @@ void CadastroVeiculo(){
             vcl = new Moto();
             break;
         case 2:
-            vcl = new Moto();
+            vcl = new Carro();
             break;
 
         default:
@@ -31,10 +31,6 @@ void CadastroVeiculo(){
     lojas[0].setVeiculo(vcl);
     lojas[1].setVeiculo(vcl);
     veiculos.push_back(vcl);
-}
-
-void VisualizarEstoque(){
-
 }
 
 void AdicionarEstoque(){
@@ -110,7 +106,7 @@ void DiminuirEstoque(){
 }
 
 int main(){
-    int opcao = 0;
+    int opcao = 0, estoqueEscolhido;
 
     lojas[0] = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
     lojas[1] = Concessionaria("Loja Filial", Endereco("59871234", "Avenida Tirandentes", 45));
@@ -127,8 +123,20 @@ int main(){
                 break;
 
             case 2:
+                cout << "Digite qual estoque deseja ver: ('0 - para a loja Matriz e 1 - para a Filial')" << endl;
+                do{
+                    cin >> estoqueEscolhido;
+                    cout << "Estoque não existe ou não consta no sistema!" << endl;
+                }while(estoqueEscolhido != 0 && estoqueEscolhido != 1);
 
+                if(estoqueEscolhido == 0){
+                    lojas[0].exibirEstoque();
+                }else{
+                    lojas[1].exibirEstoque();
+                }
+                    
                 break;
+
             case 3:
                 AdicionarEstoque();
                 break;
@@ -138,7 +146,7 @@ int main(){
                 break;
 
             case 5:
-
+                cout << "Obrigado por usar nosso sistema!" << endl;
                 break;
         }
 

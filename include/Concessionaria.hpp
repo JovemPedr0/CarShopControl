@@ -22,6 +22,7 @@ class Concessionaria{
         void setVeiculo(Veiculo* vcl);
         void adicionarEstoque(int qtde, int cod);
         void diminuirEstoque(int cod);
+        void exibirEstoque();
 };
 
 

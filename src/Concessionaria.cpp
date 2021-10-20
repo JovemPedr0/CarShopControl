@@ -1,4 +1,5 @@
 #include "Concessionaria.hpp"
+#include <iostream>
 
 Concessionaria::Concessionaria(){
     nomeDaConcessionaria = "-";
@@ -50,5 +51,13 @@ void Concessionaria::diminuirEstoque(int cod){
             quantAtual = estoque[i]->getQuantidade() - 1;
             estoque[i]->setQuantidade(quantAtual);
         }
+    }
+}
+
+void Concessionaria::exibirEstoque(){
+    for (int i = 0; i < estoque.size(); i++){
+        std::cout << estoque[i]->getNomeDoVeiculo() << " de codigo: " << estoque[i]->getCodigoDoVeiculo() << " com a quantidade : " << estoque[i]->getQuantidade()
+        << " " << estoque[i]->getMarcaDoVeiculo() << " - " << estoque[i]->getModeloDoVeiculo() << " ( "<< estoque[i]->getAnoDeFabricacao() << ", " << 
+        estoque[i]->getCorDoVeiculo() << ", R$ " << estoque[i]->getValor() << " ) " << std::endl;
     }
 }
