@@ -1,6 +1,6 @@
 # Controle de uma Concessionária
 
-<br> Esse CRUD simples foi desenvolvido com a finalidade de fazer compras, vendas e cadastros de automóveis de uma concessionaria. </br>
+<br> sistema CRUD desenvolvido com a finalidade de fazer compras, vendas e cadastros de automóveis de uma concessionaria. </br>
 
 <br>
     <div align="center">
