@@ -48,8 +48,14 @@ void Concessionaria::diminuirEstoque(int cod){
     for(unsigned int i = 0; i < estoque.size(); i++){
 
         if(cod == estoque[i]->getCodigoDoVeiculo()){
-            quantAtual = estoque[i]->getQuantidade() - 1;
-            estoque[i]->setQuantidade(quantAtual);
+
+            if(estoque[i].getQuantidade() == 0){
+                cout << "Não existe estoque para o modelo selecionado." << endl;
+
+            }else{
+                quantAtual = estoque[i]->getQuantidade() - 1;
+                estoque[i]->setQuantidade(quantAtual);
+            }
         }
     }
 }
@@ -59,7 +65,7 @@ void Concessionaria::exibirEstoque(){
         std::cout << getNomeConcessionaria() << std::endl;
         for (int i = 0; i < estoque.size(); i++){
             std::cout << estoque[i]->getNomeDoVeiculo() << " de codigo: " << estoque[i]->getCodigoDoVeiculo() << " com a quantidade : " << estoque[i]->getQuantidade()
-            << " " << estoque[i]->getMarcaDoVeiculo() << " - " << estoque[i]->getModeloDoVeiculo() << " ( "<< estoque[i]->getAnoDeFabricacao() << ", " << 
+            << " " << estoque[i]->getMarcaDoVeiculo() << " - " << estoque[i]->getModeloDoVeiculo() << " ( "<< estoque[i]->getAnoDeFabricacao() << ", " <<
             estoque[i]->getCorDoVeiculo() << ", R$ " << estoque[i]->getValor() << " ) " << std::endl;
         }
     std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
