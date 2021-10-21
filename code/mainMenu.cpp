@@ -13,7 +13,7 @@ void CadastroVeiculo(){
     int tipo;
     Veiculo *vcl;
 
-    cout << "Qual tipo de veículo deseja cadastrar? (1 para MOTO e 2 para CARRO): ";
+    cout << "Qual tipo de vei�culo deseja cadastrar? (1 para MOTO e 2 para CARRO): ";
     cin >> tipo;
 
     switch(tipo){
@@ -25,7 +25,7 @@ void CadastroVeiculo(){
             break;
 
         default:
-            cout << "Valor Inválido" << endl;
+            cout << "Valor Invalido" << endl;
     }
 
     vcl->lerAtributos();
@@ -41,7 +41,7 @@ void AdicionarEstoque(){
 
     while(1){
         
-        cout << "Digite o código do veí­culo a adicionar no estoque: " << endl;
+        cout << "Digite o codigo do vei�culo a adicionar no estoque: " << endl;
         cin >> codigo;
 
         for(unsigned int i = 0; i < veiculos.size(); i++){
@@ -51,7 +51,7 @@ void AdicionarEstoque(){
                 cout << "Digite a quantidade a ser adicionada:" << endl;
                 cin >> quantidade;
 
-                cout << "Escolha em qual loja será adicionada a quantidade de " << quantidade << " veículos: " << veiculos[i]->getModeloDoVeiculo()
+                cout << "Escolha em qual loja sera adicionada a quantidade de " << quantidade << " veiculos: " << veiculos[i]->getModeloDoVeiculo()
                 << "(LOJA MATRIZ = 1 / FILIAL = 2)" << endl;
                 cin >> escolha;
 
@@ -65,11 +65,11 @@ void AdicionarEstoque(){
                         return;
 
                     default:
-                        cout << "Loja inválida" << endl;
+                        cout << "Loja invalida" << endl;
                     }
 
             }else{
-                cout << "Código Inválido" << endl;
+                cout << "Codigo Invalido" << endl;
             }
         }
     }
@@ -80,14 +80,14 @@ void DiminuirEstoque(){
 
     while(1){
         
-        cout << "Digite o código do veículo a retirar no estoque: " << endl;
+        cout << "Digite o codigo do veiculo a retirar no estoque: " << endl;
         cin >> codigo;
 
         for(unsigned int i = 0; i < veiculos.size(); i++){
 
             if(codigo == veiculos[i]->getCodigoDoVeiculo()){
 
-                cout << "Escolha em qual loja será vendido o veí­culo: " << veiculos[i]->getModeloDoVeiculo()
+                cout << "Escolha em qual loja sera vendido o vei�culo: " << veiculos[i]->getModeloDoVeiculo()
                 << "(LOJA MATRIZ = 1 / FILIAL = 2)" << endl;
                 cin >> escolha;
 
@@ -101,11 +101,11 @@ void DiminuirEstoque(){
                         return;
 
                     default:
-                        cout << "Loja inválida" << endl;
+                        cout << "Loja invalida" << endl;
                     }
 
             }else{
-                cout << "Código Inválido" << endl;
+                cout << "Codigo Invalido" << endl;
             }
         }
     }
@@ -147,13 +147,13 @@ int main() {
         //system("color 4F"); /*// Definindo a cor do fundo e a letra no cmd*/
 
         gotoxy(co + 5,L);     // co Ã© a coluna de inicio do menu e L Ã© a linha de inico do menu
-        printf("1 - CADASTRAR VEÍCULO");
+        printf("1 - CADASTRAR VEICULO");
         gotoxy(co + 5,L + 1);
-        printf("2 - VISUALIZAR ESTOQUE DE VEÍCULOS");
+        printf("2 - VISUALIZAR ESTOQUE DE VEICULOS");
         gotoxy(co + 5,L + 2);
-        printf("3 - ADICIONAR VEÍCULO AO ESTOQUE");
+        printf("3 - ADICIONAR VEICULO AO ESTOQUE");
         gotoxy(co + 5,L + 3);
-        printf("4 - REMOVER VEÍCULO DO ESTOQUE");
+        printf("4 - REMOVER VEICULO DO ESTOQUE");
         gotoxy(co + 5,L + 4);
         printf("5 - SAIR\n");
 
@@ -192,13 +192,13 @@ int main() {
     switch (opcao) {
         case 1:
             system("cls");
-            printf("Cadastre seu Veículo!\n");
+            printf("Cadastre seu Vei�culo!\n");
             CadastroVeiculo();
             break;
 
         case 2:
             system("cls");
-            printf("Visualizar Estoque de Veículos!\n");
+            printf("Visualizar Estoque de Veiculos!\n");
                 cout << "Digite qual estoque deseja ver: ('0 - para a loja Matriz e 1 - para a Filial')" << endl;
                 cin >> estoqueEscolhido;
          
@@ -223,7 +223,7 @@ int main() {
 
         case 5:
             system("cls");
-            printf("Você pediu para sair, fechando programa");
+            printf("Voce pediu para sair, fechando programa");
             for(a = 0; a < 3; a++){
                 printf(".");
                 Sleep(300);
@@ -233,7 +233,7 @@ int main() {
 
         default:
             system("cls");
-            printf("Você deve escolher uma opção válida\n");
+            printf("Voce deve escolher uma opção válida\n");
             printf("Precione qualquer tecla para voltar ao menu\n");
             system("pause");
             goto inicio;

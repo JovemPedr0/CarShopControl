@@ -49,8 +49,8 @@ void Concessionaria::diminuirEstoque(int cod){
 
         if(cod == estoque[i]->getCodigoDoVeiculo()){
 
-            if(estoque[i].getQuantidade() == 0){
-                cout << "Não existe estoque para o modelo selecionado." << endl;
+            if(estoque[i]->getQuantidade() == 0){
+                std::cout << "Nao existe estoque para o modelo selecionado." << std::endl;
 
             }else{
                 quantAtual = estoque[i]->getQuantidade() - 1;
