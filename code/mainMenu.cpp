@@ -13,7 +13,7 @@ void CadastroVeiculo(){
     int tipo;
     Veiculo *vcl;
 
-    cout << "Qual tipo de vei�culo deseja cadastrar? (1 para MOTO e 2 para CARRO): ";
+    cout << "Qual tipo de veiculo deseja cadastrar? (1 para MOTO e 2 para CARRO): ";
     cin >> tipo;
 
     switch(tipo){
@@ -41,7 +41,7 @@ void AdicionarEstoque(){
 
     while(1){
         
-        cout << "Digite o codigo do vei�culo a adicionar no estoque: " << endl;
+        cout << "Digite o codigo do veiculo a adicionar no estoque: " << endl;
         cin >> codigo;
 
         for(unsigned int i = 0; i < veiculos.size(); i++){
@@ -87,7 +87,7 @@ void DiminuirEstoque(){
 
             if(codigo == veiculos[i]->getCodigoDoVeiculo()){
 
-                cout << "Escolha em qual loja sera vendido o vei�culo: " << veiculos[i]->getModeloDoVeiculo()
+                cout << "Escolha em qual loja sera vendido o veiculo: " << veiculos[i]->getModeloDoVeiculo()
                 << "(LOJA MATRIZ = 1 / FILIAL = 2)" << endl;
                 cin >> escolha;
 
@@ -144,8 +144,10 @@ int main() {
         L2 = L;    /*L2 Ã© onde estava a seta */
         L3 = L + 4;  /*L3 Ã© a linha final do menu*/
         L4 = L;    /*L4 Ã© a linha de inicio do menu*/
-        //system("color 4F"); /*// Definindo a cor do fundo e a letra no cmd*/
+        //system("color 4F"); /*// Definindo a cor do fundo e a letra no cmd*
 
+         
+        printf(" CONTROLE DA CONCESSIONARIA");
         gotoxy(co + 5,L);     // co Ã© a coluna de inicio do menu e L Ã© a linha de inico do menu
         printf("1 - CADASTRAR VEICULO");
         gotoxy(co + 5,L + 1);
@@ -192,7 +194,7 @@ int main() {
     switch (opcao) {
         case 1:
             system("cls");
-            printf("Cadastre seu Vei�culo!\n");
+            printf("Cadastre seu Veiculo!\n");
             CadastroVeiculo();
             break;
 
@@ -205,10 +207,12 @@ int main() {
                 if(estoqueEscolhido == 0){
                     lojas[0].exibirEstoque();
                     system("pause");
-                }else{
+                }
+                 if(estoqueEscolhido == 1){
                     lojas[1].exibirEstoque();
                     system("pause");
-                }
+                }      
+                
             break;
 
         case 3:
@@ -234,7 +238,7 @@ int main() {
         default:
             system("cls");
             printf("Voce deve escolher uma opção válida\n");
-            printf("Precione qualquer tecla para voltar ao menu\n");
+            printf("Pressione qualquer tecla para voltar ao menu\n");
             system("pause");
             goto inicio;
         }
