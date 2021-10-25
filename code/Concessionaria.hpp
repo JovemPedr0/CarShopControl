@@ -23,6 +23,9 @@ class Concessionaria{
         void adicionarEstoque(int qtde, int cod);
         void diminuirEstoque(int cod);
         void exibirEstoque();
+
+        void exibeConcessionaria();
+
 };
 
 

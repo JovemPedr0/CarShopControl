@@ -21,6 +21,7 @@ class Endereco{
         void setCEP(std::string numeroDoCEP);
         void setLogradouro(std::string logradouro);
         void setNumeroDaLocalidade(int numeroDaLocalidade);
+
 };
 
 #endif //Endereco.hpp

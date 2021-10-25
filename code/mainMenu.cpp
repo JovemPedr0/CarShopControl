@@ -115,7 +115,7 @@ int main() {
         //system("color 4F"); /*// Definindo a cor do fundo e a letra no cmd*
 
          
-        printf("CONTROLE DA CONCESSIONARIA\n");
+        lojas1.exibeConcessionaria();
         gotoxy(co + 5,L);     // co Ã© a coluna de inicio do menu e L Ã© a linha de inico do menu
         printf("1 - CADASTRAR VEICULO");
         gotoxy(co + 5,L + 1);

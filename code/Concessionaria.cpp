@@ -70,3 +70,7 @@ void Concessionaria::exibirEstoque(){
         }
     std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
 }
+
+void Concessionaria::exibeConcessionaria(){
+    std::cout << getNomeConcessionaria() << " - " << localizacao.getLogradouro() << ", " << localizacao.getNumeroDaLocalidade() << " - " << localizacao.getCEP() << std::endl;
+}
