@@ -4,7 +4,6 @@ using namespace std;
 
 Concessionaria lojas[2];
 vector <Veiculo*> veiculos;
-int numVeiculos = 0;
 
 int a, b, L, L2; // DeclaraÃ§Ã£o das vÃ¡riaveis das setas
 int co, L3, L4; // Novas declaraÃ§Ãµes do menu
@@ -29,7 +28,6 @@ void CadastroVeiculo(){
     }
 
     vcl->lerAtributos();
-    numVeiculos++;
 
     lojas[0].setVeiculo(vcl);
     lojas[1].setVeiculo(vcl);
