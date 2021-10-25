@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Concessionaria lojas[2];
+Concessionaria lojas1;
 vector <Veiculo*> veiculos;
 
 int a, b, L, L2; // DeclaraÃ§Ã£o das vÃ¡riaveis das setas
@@ -29,8 +29,7 @@ void CadastroVeiculo(){
 
     vcl->lerAtributos();
 
-    lojas[0].setVeiculo(vcl);
-    lojas[1].setVeiculo(vcl);
+    lojas1.setVeiculo(vcl);
     veiculos.push_back(vcl);
 }
 
@@ -48,23 +47,9 @@ void AdicionarEstoque(){
                
                 cout << "Digite a quantidade a ser adicionada:" << endl;
                 cin >> quantidade;
-
-                cout << "Escolha em qual loja sera adicionada a quantidade de " << quantidade << " veiculos: " << veiculos[i]->getModeloDoVeiculo()
-                << "(LOJA MATRIZ = 1 / FILIAL = 2)" << endl;
-                cin >> escolha;
-
-                switch(escolha){
-                    case 1:
-                        lojas[0].adicionarEstoque(quantidade, codigo);
-                        return;
-
-                    case 2:
-                        lojas[1].adicionarEstoque(quantidade, codigo);
-                        return;
-
-                    default:
-                        cout << "Loja invalida" << endl;
-                    }
+ 
+                lojas1.adicionarEstoque(quantidade, codigo);
+                return;
 
             }else{
                 cout << "Codigo Invalido" << endl;
@@ -85,22 +70,8 @@ void DiminuirEstoque(){
 
             if(codigo == veiculos[i]->getCodigoDoVeiculo()){
 
-                cout << "Escolha em qual loja sera vendido o veiculo: " << veiculos[i]->getModeloDoVeiculo()
-                << "(LOJA MATRIZ = 1 / FILIAL = 2)" << endl;
-                cin >> escolha;
-
-                switch(escolha){
-                    case 1:
-                        lojas[0].diminuirEstoque(codigo);
-                        return;
-
-                    case 2:
-                        lojas[1].diminuirEstoque(codigo);
-                        return;
-
-                    default:
-                        cout << "Loja invalida" << endl;
-                    }
+                lojas1.diminuirEstoque(codigo);
+                return;
 
             }else{
                 cout << "Codigo Invalido" << endl;
@@ -120,8 +91,8 @@ int main() {
     int opcao,  estoqueEscolhido;
     setlocale(LC_ALL, "Portuguese"); // Definindo portuguÃªs como linguagem padrÃ£o
 
-    lojas[0] = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
-    lojas[1] = Concessionaria("Loja Filial", Endereco("59871234", "Avenida Tirandentes", 45));
+    lojas1 = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
+    
 
     do{
         inicio:
@@ -131,7 +102,6 @@ int main() {
         b = 2;
         system("cls"); // Limpar a tela dos comandos anteriores
         system("color 0F"); // Definindo a cor do fundo e a letra no cmd
-        printf("Dica: Precione a tecla ESQ a qualquer momento para voltar para o menu principal!");
 
 
         /*modificando o valor de co muda a coluna de inicio do menu que pose ser de zero ate 63*/
@@ -145,7 +115,7 @@ int main() {
         //system("color 4F"); /*// Definindo a cor do fundo e a letra no cmd*
 
          
-        printf(" CONTROLE DA CONCESSIONARIA");
+        printf("CONTROLE DA CONCESSIONARIA\n");
         gotoxy(co + 5,L);     // co Ã© a coluna de inicio do menu e L Ã© a linha de inico do menu
         printf("1 - CADASTRAR VEICULO");
         gotoxy(co + 5,L + 1);
@@ -199,18 +169,8 @@ int main() {
         case 2:
             system("cls");
             printf("Visualizar Estoque de Veiculos!\n");
-                cout << "Digite qual estoque deseja ver: ('0 - para a loja Matriz e 1 - para a Filial')" << endl;
-                cin >> estoqueEscolhido;
-         
-                if(estoqueEscolhido == 0){
-                    lojas[0].exibirEstoque();
-                    system("pause");
-                }
-                 if(estoqueEscolhido == 1){
-                    lojas[1].exibirEstoque();
-                    system("pause");
-                }      
-                
+            lojas1.exibirEstoque();
+            system("pause");    
             break;
 
         case 3:
