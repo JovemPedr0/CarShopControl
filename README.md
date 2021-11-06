@@ -1,6 +1,6 @@
-# Carshop Control
+# Car shop Control
 
-<br> Simple system CRUD for a carshop, who makes the registration for which veicule and your sell.</br>
+<br> Simple system CRUD for a car shop, who makes the registration for which veicule and your sell.</br>
 
 <br>
     <div align="center">
