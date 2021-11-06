@@ -1,6 +1,6 @@
 # Controle de uma Concessionária
 
-<br> sistema CRUD desenvolvido com a finalidade de fazer compras, vendas e cadastros de automóveis de uma concessionaria. </br>
+<br> Simple system CRUD for a car shop, who makes the registration for which veicule and your sell.</br>
 
 <br>
     <div align="center">
@@ -8,8 +8,8 @@
     </div>
 </br>
 
-<br> Este projeto, desenvolvido em grupo, objetiva a obtenção da segunda nota na disciplina de Linguagem de Programação 1, da Universidade Federal da Paraíba <a href = http://ci.ufpb.br/>(UFPB)</a>.</br>
+<br> This project, was desenvolved in group, is the second note from the discipline Language of Programming 1 (OOP/C++) at <a href = http://ci.ufpb.br/>(UFPB)</a>.</br>
 
 ## Colaboradores
-- [Mateus Freitas](https://github.com/MateusFreitas-C)
+- [Mateus Freitas](https://github.com/MateusFreitas-C) 
 - [Pedro Lucas](https://github.com/JovemPedr0)
