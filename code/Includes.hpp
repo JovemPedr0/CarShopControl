@@ -4,6 +4,7 @@
 #include <locale.h> // Biblioteca de acentuação de caracteres
 #include <windows.h> // Biblioteca dos códigos do cmd
 #include <bits/stdc++.h>
+#include <fstream>
 
 #include "Veiculo.hpp"
 #include "Carro.hpp"

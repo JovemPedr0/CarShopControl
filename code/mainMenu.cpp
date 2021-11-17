@@ -93,6 +93,27 @@ int main() {
 
     lojas1 = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
     
+    cout << "Entrei" << endl;
+
+    ifstream input;
+    input.open("estoque.csv", ios::in);
+
+    if(!input.is_open()){
+        cout << "Erro ao abrir estoque." << endl;
+    }
+
+    //cout << "Abrindo" << endl;
+    lojas1.lerEstoque(input);
+
+    cout << "Saindo" << endl;
+    input.close();
+
+    ofstream output;
+    output.open("estoque.csv", ios::out);
+
+    if(!output.is_open()){
+        cout << "Erro de estoque." << endl;
+    }
 
     do{
         inicio:
@@ -185,6 +206,8 @@ int main() {
 
         case 5:
             system("cls");
+            lojas1.salvarConcessionaria(output);
+            output.close();
             printf("Voce pediu para sair, fechando programa");
             for(a = 0; a < 3; a++){
                 printf(".");

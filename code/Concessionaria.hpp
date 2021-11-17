@@ -4,6 +4,9 @@
 #include "Endereco.hpp"
 #include <vector>
 #include "Veiculo.hpp"
+#include <fstream>
+#include "Carro.hpp"
+#include "Moto.hpp"
 
 class Concessionaria{
     protected:
@@ -25,6 +28,8 @@ class Concessionaria{
         void exibirEstoque();
 
         void exibeConcessionaria();
+        void salvarConcessionaria(std::ofstream &output);
+        void lerEstoque(std::ifstream &input);
 
 };
 
