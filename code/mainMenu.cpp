@@ -92,24 +92,21 @@ int main() {
     setlocale(LC_ALL, "Portuguese"); // Definindo portuguÃªs como linguagem padrÃ£o
 
     lojas1 = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
-    
-    cout << "Entrei" << endl;
 
     ifstream input;
-    input.open("estoque.csv", ios::in);
+    input.open("estoque.txt", ios::app);
 
     if(!input.is_open()){
         cout << "Erro ao abrir estoque." << endl;
     }
 
-    //cout << "Abrindo" << endl;
     lojas1.lerEstoque(input);
+    cout << "Estoque lido com sucesso!" << endl;
 
-    cout << "Saindo" << endl;
     input.close();
 
     ofstream output;
-    output.open("estoque.csv", ios::out);
+    output.open("estoque.txt", ios::app);
 
     if(!output.is_open()){
         cout << "Erro de estoque." << endl;

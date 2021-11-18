@@ -77,62 +77,51 @@ void Concessionaria::exibeConcessionaria(){
 
 void Concessionaria::salvarConcessionaria(std::ofstream &output){
     for(unsigned int i = 0; i < estoque.size(); i++){
-        output << estoque[i]->getNomeDoVeiculo() << "," << estoque[i]->getCodigoDoVeiculo() << "," << estoque[i]->getQuantidade()
-            << " " << estoque[i]->getMarcaDoVeiculo() << "," << estoque[i]->getModeloDoVeiculo() << ","<< estoque[i]->getAnoDeFabricacao() << ", " <<
-            estoque[i]->getCorDoVeiculo() << "," << estoque[i]->getValor() << std::endl;
+        output << estoque[i]->getNomeDoVeiculo() << "\n" << estoque[i]->getCodigoDoVeiculo() << "\n" << estoque[i]->getQuantidade()
+            << "\n" << estoque[i]->getMarcaDoVeiculo() << "\n" << estoque[i]->getModeloDoVeiculo() << "\n" << estoque[i]->getAnoDeFabricacao() << "\n" <<
+            estoque[i]->getCorDoVeiculo() << "\n" << estoque[i]->getValor() << std::endl;
     }
 }
 
 void Concessionaria::lerEstoque(std::ifstream &input){
-    
-    while(!input.fail() && !input.bad() && !input.eof() && input.good()) {
-        std::cout << "Abrindo" << std::endl;
+    while(!input.eof() && !input.bad() && !input.fail()) {
         int i = 0, codigo, quant, ano;
         std::string nome, marca, modelo, cor;
         double preco;
         Veiculo *vcl;
 
-        std::cin.ignore();
-        input >> nome;
+        
+        getline(input, nome);
 
-        if(input.fail() && input.bad() && input.eof() && !input.good()){
+        /*if(input.fail() && input.bad() && input.eof() && !input.good()){
             break;
-        }
+        }*/
 
         if(nome == "Moto"){
             vcl = new Moto();
         }else{
             vcl = new Carro();
         }
+        input >> codigo;
+        input >> quant;
+        input.ignore();
+        getline(input, marca);
+        getline(input, modelo); 
+        input >> ano;
+        input.ignore();
+        getline(input, cor);
+        input >> preco;
+        input.ignore();
 
         vcl->setNomeDoVeiculo(nome);
-
-        input >> codigo;
         vcl->setCodigoDoVeiculo(codigo);
-
-        input >> quant;
         vcl->setQuantidade(quant);
-
-        std::cin.ignore();
-        getline(input, marca);
         vcl->setMarcaDoVeiculo(marca);
-
-        std::cin.ignore();
-        getline(input, modelo);
         vcl->setModeloDoVeiculo(modelo);
-
-        input >> ano;
         vcl->setAnoDeFabricacao(ano);
-
-        std::cin.ignore();
-        getline(input, cor);
         vcl->setCorDoVeiculo(cor);
-
-        input >> preco;
         vcl->setValor(preco);
 
         setVeiculo(vcl);
     }
-
-    std::cout << "Ribamar" << std::endl;
 }
