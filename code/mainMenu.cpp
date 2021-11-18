@@ -92,6 +92,7 @@ int main(){
 
     lojas1 = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
 
+
     ifstream input;
     input.open("estoque.txt", ios::in);
 
@@ -100,6 +101,7 @@ int main(){
     }
 
     lojas1.lerEstoque(input);
+    system("cls");
     cout << "Estoque lido com sucesso!" << endl;
 
     input.close();
@@ -133,6 +135,8 @@ int main(){
 
          
         lojas1.exibeConcessionaria();
+        gotoxy(co + 5,L - 2);
+        printf("ESSE PROGRAMA TRABALHA COM AUTOSAVE!");
         gotoxy(co + 5,L);     // co Ã© a coluna de inicio do menu e L Ã© a linha de inico do menu
         printf("1 - CADASTRAR VEICULO");
         gotoxy(co + 5,L + 1);
@@ -143,8 +147,7 @@ int main(){
         printf("4 - REMOVER VEICULO DO ESTOQUE");
         gotoxy(co + 5,L + 4);
         printf("5 - SAIR\n");
-        gotoxy(co + 10,L);
-        printf("ESSE PROGRAMA TRABALHA COM AUTOSAVE!");
+        
 
         do{                       /*loop para movimentar a seta*/
             gotoxy(co + 2,L);       /*gotoxy posiciona o cursor, o co Ã© a coluna e L Ã© a linha onde imprimir a seta*/

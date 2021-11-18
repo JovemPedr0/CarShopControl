@@ -80,9 +80,11 @@ void Concessionaria::salvarConcessionaria(std::ofstream &output){
         output << estoque[i]->getNomeDoVeiculo() << "\n" << estoque[i]->getCodigoDoVeiculo() << "\n" << estoque[i]->getQuantidade()
         << "\n" << estoque[i]->getMarcaDoVeiculo() << "\n" << estoque[i]->getModeloDoVeiculo() << "\n" << estoque[i]->getAnoDeFabricacao() << "\n" <<
         estoque[i]->getCorDoVeiculo() << "\n" << estoque[i]->getValor() << std::endl;
+    }
 }
 
 void Concessionaria::lerEstoque(std::ifstream &input){
+
     while(!input.eof() && !input.bad() && !input.fail()) {
         int i = 0, codigo = 0, quant = 0, ano = 0;
         std::string nome, marca, modelo, cor;
@@ -128,7 +130,11 @@ void Concessionaria::lerEstoque(std::ifstream &input){
         vcl->setValor(preco);
 
         input.ignore();
-
-        setVeiculo(vcl);
+        if(preco == 0 && codigo == 0 && quant == 0 && ano == 0){
+            break;
+        }else{
+            setVeiculo(vcl);
+        }
+        
     }
 }
