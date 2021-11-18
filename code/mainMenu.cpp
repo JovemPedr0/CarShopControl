@@ -58,8 +58,8 @@ void AdicionarEstoque(){
     }
 }
 
-void DiminuirEstoque(){
-    int codigo, escolha;
+/*void DiminuirEstoque(){
+    int codigo;
 
     while(1){
         
@@ -69,16 +69,15 @@ void DiminuirEstoque(){
         for(unsigned int i = 0; i < veiculos.size(); i++){
 
             if(codigo == veiculos[i]->getCodigoDoVeiculo()){
-
                 lojas1.diminuirEstoque(codigo);
-                return;
+                break;
 
             }else{
                 cout << "Codigo Invalido" << endl;
             }
         }
     }
-}
+}*/
 
 void gotoxy(int x,int y){
     COORD c;
@@ -87,14 +86,14 @@ void gotoxy(int x,int y){
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),c);
 }
 
-int main() {
-    int opcao,  estoqueEscolhido;
+int main(){
+    int opcao,  estoqueEscolhido, codigo;
     setlocale(LC_ALL, "Portuguese"); // Definindo portuguÃªs como linguagem padrÃ£o
 
     lojas1 = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
 
     ifstream input;
-    input.open("estoque.txt", ios::app);
+    input.open("estoque.txt", ios::in);
 
     if(!input.is_open()){
         cout << "Erro ao abrir estoque." << endl;
@@ -106,7 +105,7 @@ int main() {
     input.close();
 
     ofstream output;
-    output.open("estoque.txt", ios::app);
+    output.open("estoque.txt", ios::out);
 
     if(!output.is_open()){
         cout << "Erro de estoque." << endl;
@@ -144,6 +143,8 @@ int main() {
         printf("4 - REMOVER VEICULO DO ESTOQUE");
         gotoxy(co + 5,L + 4);
         printf("5 - SAIR\n");
+        gotoxy(co + 10,L);
+        printf("ESSE PROGRAMA TRABALHA COM AUTOSAVE!");
 
         do{                       /*loop para movimentar a seta*/
             gotoxy(co + 2,L);       /*gotoxy posiciona o cursor, o co Ã© a coluna e L Ã© a linha onde imprimir a seta*/
@@ -198,7 +199,9 @@ int main() {
 
         case 4:
             system("cls");
-            DiminuirEstoque();
+            cout << "Digite o codigo do veiculo a retirar no estoque: " << endl;
+            cin >> codigo;
+            lojas1.diminuirEstoque(codigo);
             break;
 
         case 5:

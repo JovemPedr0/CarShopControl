@@ -78,49 +78,56 @@ void Concessionaria::exibeConcessionaria(){
 void Concessionaria::salvarConcessionaria(std::ofstream &output){
     for(unsigned int i = 0; i < estoque.size(); i++){
         output << estoque[i]->getNomeDoVeiculo() << "\n" << estoque[i]->getCodigoDoVeiculo() << "\n" << estoque[i]->getQuantidade()
-            << "\n" << estoque[i]->getMarcaDoVeiculo() << "\n" << estoque[i]->getModeloDoVeiculo() << "\n" << estoque[i]->getAnoDeFabricacao() << "\n" <<
-            estoque[i]->getCorDoVeiculo() << "\n" << estoque[i]->getValor() << std::endl;
-    }
+        << "\n" << estoque[i]->getMarcaDoVeiculo() << "\n" << estoque[i]->getModeloDoVeiculo() << "\n" << estoque[i]->getAnoDeFabricacao() << "\n" <<
+        estoque[i]->getCorDoVeiculo() << "\n" << estoque[i]->getValor() << std::endl;
 }
 
 void Concessionaria::lerEstoque(std::ifstream &input){
     while(!input.eof() && !input.bad() && !input.fail()) {
-        int i = 0, codigo, quant, ano;
+        int i = 0, codigo = 0, quant = 0, ano = 0;
         std::string nome, marca, modelo, cor;
-        double preco;
+        double preco = 0;
         Veiculo *vcl;
 
+        if(input.fail() && input.bad() && input.eof() && !input.good()){
+            break;
+        }
         
         getline(input, nome);
-
-        /*if(input.fail() && input.bad() && input.eof() && !input.good()){
-            break;
-        }*/
 
         if(nome == "Moto"){
             vcl = new Moto();
         }else{
             vcl = new Carro();
         }
+        vcl->setNomeDoVeiculo(nome);
+
         input >> codigo;
+        vcl->setCodigoDoVeiculo(codigo);
+
         input >> quant;
-        input.ignore();
-        getline(input, marca);
-        getline(input, modelo); 
-        input >> ano;
-        input.ignore();
-        getline(input, cor);
-        input >> preco;
+        vcl->setQuantidade(quant);
+
         input.ignore();
 
-        vcl->setNomeDoVeiculo(nome);
-        vcl->setCodigoDoVeiculo(codigo);
-        vcl->setQuantidade(quant);
+        getline(input, marca);
         vcl->setMarcaDoVeiculo(marca);
+
+        getline(input, modelo); 
         vcl->setModeloDoVeiculo(modelo);
+
+        input >> ano;
         vcl->setAnoDeFabricacao(ano);
+
+        input.ignore();
+
+        getline(input, cor);
         vcl->setCorDoVeiculo(cor);
+
+        input >> preco;
         vcl->setValor(preco);
+
+        input.ignore();
 
         setVeiculo(vcl);
     }
