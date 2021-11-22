@@ -11,3 +11,4 @@
 #include "Moto.hpp"
 #include "Concessionaria.hpp"
 #include "Endereco.hpp"
+#include "CodigoException.hpp"

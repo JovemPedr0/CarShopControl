@@ -33,7 +33,7 @@ void CadastroVeiculo(){
     veiculos.push_back(vcl);
 }
 
-void AdicionarEstoque(){
+/*void AdicionarEstoque(){
     int codigo, quantidade, escolha;
 
     while(1){
@@ -87,7 +87,7 @@ void gotoxy(int x,int y){
 }
 
 int main(){
-    int opcao,  estoqueEscolhido, codigo;
+    int opcao,  estoqueEscolhido, codigo, quantidade;
     setlocale(LC_ALL, "Portuguese"); // Definindo portuguÃªs como linguagem padrÃ£o
 
     lojas1 = Concessionaria("Loja Matriz", Endereco("10102300", "Avenida Nego", 99));
@@ -185,7 +185,15 @@ int main(){
         case 1:
             system("cls");
             printf("Cadastre seu Veiculo!\n");
-            CadastroVeiculo();
+
+            try{
+                CadastroVeiculo();
+
+            }catch(CodigoException e){
+                cout << e.getMensagem();
+            }
+
+            system("pause");
             break;
 
         case 2:
@@ -196,15 +204,37 @@ int main(){
             break;
 
         case 3:
+            fflush(stdin);
             system("cls");
-            AdicionarEstoque();
+            cout << "Digite o codigo do veiculo a adicionar no estoque: " << endl;
+            cin >> codigo;
+            cout << "Digite a quantidade a ser adicionada:" << endl;
+            cin >> quantidade;
+
+            try{
+                lojas1.adicionarEstoque(quantidade, codigo);
+
+            }catch(CodigoException e){
+               cout << e.getMensagem();
+            }
+
+            system("pause"); 
             break;
 
         case 4:
+            fflush(stdin);
             system("cls");
             cout << "Digite o codigo do veiculo a retirar no estoque: " << endl;
             cin >> codigo;
-            lojas1.diminuirEstoque(codigo);
+            
+            try{
+                lojas1.diminuirEstoque(codigo);
+            
+            }catch(CodigoException e){
+                cout << e.getMensagem();
+            }
+
+            system("pause"); 
             break;
 
         case 5:

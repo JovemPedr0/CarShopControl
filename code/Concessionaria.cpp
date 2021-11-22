@@ -1,5 +1,6 @@
 #include "Concessionaria.hpp"
 #include <iostream>
+#include "CodigoException.hpp"
 
 Concessionaria::Concessionaria(){
     nomeDaConcessionaria = "-";
@@ -26,6 +27,14 @@ void Concessionaria::setNome(std::string nomeDaConcessionaria){
 }
 
 void Concessionaria::setVeiculo(Veiculo* vcl){
+    
+    for(unsigned int i = 0; i < estoque.size(); i++){ 
+        
+        if(vcl->getCodigoDoVeiculo() == estoque[i]->getCodigoDoVeiculo()){
+            CodigoException e = CodigoException(3);
+            throw e;
+        }
+    }
     estoque.push_back(vcl);
 }
 
@@ -38,8 +47,11 @@ void Concessionaria::adicionarEstoque(int qtde, int cod){
 
             quantAtual = estoque[i]->getQuantidade() + qtde;
             estoque[i]->setQuantidade(quantAtual);
+            return;
         }
     }
+    CodigoException e = CodigoException(2);
+    throw e;
 }
 
 void Concessionaria::diminuirEstoque(int cod){
@@ -50,14 +62,18 @@ void Concessionaria::diminuirEstoque(int cod){
         if(cod == estoque[i]->getCodigoDoVeiculo()){
 
             if(estoque[i]->getQuantidade() == 0){
-                std::cout << "Nao existe estoque para o modelo selecionado." << std::endl;
+                CodigoException e = CodigoException(1);
+                throw e;
 
             }else{
                 quantAtual = estoque[i]->getQuantidade() - 1;
                 estoque[i]->setQuantidade(quantAtual);
+                return;
             }
         }
     }
+    CodigoException e = CodigoException(2);
+    throw e;
 }
 
 void Concessionaria::exibirEstoque(){
