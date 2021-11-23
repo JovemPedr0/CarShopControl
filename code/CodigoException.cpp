@@ -1,7 +1,6 @@
 #include "CodigoException.hpp"
 
-CodigoException::CodigoException(int i)
-{
+CodigoException::CodigoException(int i){
     cod_erro = i;
 }
 

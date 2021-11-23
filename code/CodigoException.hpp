@@ -4,8 +4,7 @@
 #include <exception>
 #include <string>
 
-class CodigoException : public std::exception
-{
+class CodigoException : public std::exception{
     public:
         CodigoException(int i);
         std::string getMensagem();
@@ -13,7 +12,6 @@ class CodigoException : public std::exception
     protected:
         int cod_erro;
 
-    private:
 };
 
 #endif // CODIGOEXCEPTION_HPP

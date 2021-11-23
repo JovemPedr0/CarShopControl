@@ -78,12 +78,16 @@ void Concessionaria::diminuirEstoque(int cod){
 
 void Concessionaria::exibirEstoque(){
     std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
+    std::cout << "\n" << std::endl;
         std::cout << getNomeConcessionaria() << std::endl;
         for (unsigned int i = 0; i < estoque.size(); i++){
-            std::cout << estoque[i]->getNomeDoVeiculo() << " de codigo: " << estoque[i]->getCodigoDoVeiculo() << " com a quantidade : " << estoque[i]->getQuantidade()
-            << " " << estoque[i]->getMarcaDoVeiculo() << " - " << estoque[i]->getModeloDoVeiculo() << " ( "<< estoque[i]->getAnoDeFabricacao() << ", " <<
-            estoque[i]->getCorDoVeiculo() << ", R$ " << estoque[i]->getValor() << " ) " << std::endl;
+            if(estoque[i]->getQuantidade() > 0){
+                std::cout << estoque[i]->getNomeDoVeiculo() << " de codigo: " << estoque[i]->getCodigoDoVeiculo() << " com a quantidade : " << estoque[i]->getQuantidade()
+                << " " << estoque[i]->getMarcaDoVeiculo() << " - " << estoque[i]->getModeloDoVeiculo() << " ( "<< estoque[i]->getAnoDeFabricacao() << ", " <<
+                estoque[i]->getCorDoVeiculo() << ", R$ " << estoque[i]->getValor() << " ) " << std::endl;
+            }
         }
+    std::cout << "\n" << std::endl;
     std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
 }
 

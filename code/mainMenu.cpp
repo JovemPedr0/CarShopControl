@@ -33,52 +33,6 @@ void CadastroVeiculo(){
     veiculos.push_back(vcl);
 }
 
-/*void AdicionarEstoque(){
-    int codigo, quantidade, escolha;
-
-    while(1){
-        
-        cout << "Digite o codigo do veiculo a adicionar no estoque: " << endl;
-        cin >> codigo;
-
-        for(unsigned int i = 0; i < veiculos.size(); i++){
-
-            if(codigo == veiculos[i]->getCodigoDoVeiculo()){
-               
-                cout << "Digite a quantidade a ser adicionada:" << endl;
-                cin >> quantidade;
- 
-                lojas1.adicionarEstoque(quantidade, codigo);
-                return;
-
-            }else{
-                cout << "Codigo Invalido" << endl;
-            }
-        }
-    }
-}
-
-/*void DiminuirEstoque(){
-    int codigo;
-
-    while(1){
-        
-        cout << "Digite o codigo do veiculo a retirar no estoque: " << endl;
-        cin >> codigo;
-
-        for(unsigned int i = 0; i < veiculos.size(); i++){
-
-            if(codigo == veiculos[i]->getCodigoDoVeiculo()){
-                lojas1.diminuirEstoque(codigo);
-                break;
-
-            }else{
-                cout << "Codigo Invalido" << endl;
-            }
-        }
-    }
-}*/
-
 void gotoxy(int x,int y){
     COORD c;
     c.X = x;
@@ -103,6 +57,7 @@ int main(){
     lojas1.lerEstoque(input);
     system("cls");
     cout << "Estoque lido com sucesso!" << endl;
+    system("pause");
 
     input.close();
 
@@ -198,7 +153,12 @@ int main(){
 
         case 2:
             system("cls");
-            printf("Visualizar Estoque de Veiculos!\n");
+            printf("Visualizando Estoque de Veiculos");
+            for(a = 0; a < 3; a++){
+                printf(".");
+                Sleep(300);
+            }
+            puts(" ");
             lojas1.exibirEstoque();
             system("pause");    
             break;
@@ -244,7 +204,7 @@ int main(){
             printf("Voce pediu para sair, fechando programa");
             for(a = 0; a < 3; a++){
                 printf(".");
-                Sleep(300);
+                Sleep(500);
             }
             exit(0);
             break;
